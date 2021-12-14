@@ -4,4 +4,13 @@ Se crea sitio web de un catálogo de productos, la aplicación debe tener un dis
 
 El contenido del sitio web es dinámico, lo que quiere decir que la información que se despliega se actualizará a partir de lo que se encuentre en una base de datos, por lo tanto, deben tenerse opciones para crear productos, mostrar productos, editar productos, eliminar productos y buscar producto.
 
-Se debe implementar sólo la parte del front-end de este sitio web, incluyendo la validación básica de los formularios creados.
+Integrantes:
+
+Maria Camila Martinez
+
+Daniel Santiago Gaviria
+
+Elizabeth Carreño Alvarez
+
+
+
