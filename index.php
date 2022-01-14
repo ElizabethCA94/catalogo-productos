@@ -1,93 +1,48 @@
 <?php include("db.php"); ?>
-<?php include("includes/header_footer.php"); ?>
+<?php include("includes/header_footer.html"); ?>
 
-<div class="container p-4">
+<!DOCTYPE html>
+<html>
 
-  <div class="row">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Catálogo de productos</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c12e9cff2f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 
-    <div class="col-md-4">
+<body style="background-color: rgb(203, 231, 236);">
+  <div class="container p-4" >
+      <h4 style="text-align: center">¡BIENVENID@S! Conozcan nuestro catálogo de productos musicales a continuación:</h4>
+      <?php
+      $query = "SELECT * FROM productos";
+      $resultado = mysqli_query($conn, $query);
 
-    <?php if(isset($_SESSION['mensaje'])){ ?>
-      <div class="alert alert-success" role="alert">
-      <?= $_SESSION['mensaje'] ?> 
-    </div>
-    <?php session_unset(); } ?>
-
-      <h5>Registrar producto</h5>
-      <div class="card card-body">
-        <form action="guardar.php" method="POST">
-          <div class="form-group">
-            <p>Nombre del producto</p>
-            <input type="text" name="nombre" class="form-control" placeholder="Ej: Guitarra" autofocus>
+      while ($row = mysqli_fetch_array($resultado)) { ?>
+        <div class="productos">
+          <div class="row">
+            <div class="col-xs-10 col-sm-6 col-md-4 product">
+              <div class="card">
+                <img src="img/<?= $row['imagen'] ?>" alt=""/>
+                <h3><?php echo $row['nombre'] ?></h3>
+                <h7><?php echo $row['cantidad'] ?></h7>
+                <h7><?php echo '$', $row['precio'] ?></h7>
+                <h7><p><?php echo $row['descripcion'] ?></p></h7>
+                <div class="product-actions">
+                  <a href="modificar-en-db.php?codigo=<?php echo $row['codigo'] ?>" class="btn btn-secondary">
+                    <i class="fas fa-marker"></i>
+                  </a>
+                  <a href="eliminar-en-db.php?codigo=<?php echo $row['codigo'] ?>" class="btn btn-danger">
+                    <i class="far fa-trash-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-          <p>Descripcion del producto</p>
-            <textarea name="descripcion" rows="2" class="form-control" placeholder="Ingresa la descripcion del producto"></textarea>
-          </div>
-          <input type="submit" class="btn btn-success btn-block" name="guardar" value="Guardar">
-        </form>
-      </div>
-
+        </div>
+      <?php } ?>
   </div>
-  <div class="col-md-8">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-              <th>Producto</th>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Fecha de creacion</th>
-              <th>Otras acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $query = "SELECT * FROM productos";
-          $resultado = mysqli_query($conn, $query);
-
-          while($row = mysqli_fetch_array($resultado)) { ?>
-            <tr>
-              <td><?php echo $row['imagen'] ?></td>
-              <td><?php echo $row['nombre'] ?></td>
-              <td><?php echo $row['descripcion'] ?></td>
-              <td><?php echo $row['fechaCreacion'] ?></td>
-              <td>
-                <a href="modificar.php?codigo=<?php echo $row['codigo']?>" class="btn btn-secondary">
-                 <i class="fas fa-marker"></i> 
-                </a>
-
-                <a href="eliminar.php?codigo=<?php echo $row['codigo']?>" class="btn btn-danger">
-                  <i class="far fa-trash-alt"></i>
-                 </a>
-
-              </td>
-
-
-            </tr>
-
-
-          <?php } ?>
-        </tbody>
-      </table>
-
-
-  </div>
-
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+<html>

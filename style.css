@@ -1,0 +1,38 @@
+    #contenedor {
+        background-color: rgb(203, 231, 236);
+    }
+    
+    .product img {
+        width: 250px;
+        margin: auto;
+        padding-block-end: 30px;
+    }
+    
+    .row {
+        width: 300px;
+        display: flex;
+    }
+    
+    .card {
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        width: 800px;
+        height: auto;
+        padding: 20px 30px;
+    }
+    
+    .product-actions {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .productos {
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+    
+    .product {
+        margin: 0 auto;
+    }

@@ -1,5 +1,5 @@
-<?php include("db.php"); ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -13,9 +13,10 @@
 <body>
     <style>
         #formularioLog {
-        width: 70%;
-        background-color: rgb(179, 206, 211);
-        margin-top: 5%;}
+            width: 70%;
+            background-color: rgb(179, 206, 211);
+            margin-top: 5%;
+        }
     </style>
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
@@ -26,8 +27,8 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <a class="navbar-brand" href="index.php">Catálogo de productos</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -37,32 +38,40 @@
     <div class="container">
         <div class="card mx-auto" id="formularioLog">
             <div class="card-header">
-                <h3> Inicio de sesión </h3>
+                <h3> Registro </h3>
             </div>
             <div class="card-body">
-                <form action="validarlogin.php" method="POST">
-                    <div class="mb-3">
-                        <label>Usuario</label>
+                <form action="validarRegistro.php" method="POST">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-label"></div>
+                        <label>Usuario
                             <input class="form-control" placeholder="Ingrese su usuario" name="usuario">
-                            <div id="emailHelp" class="form-text">No compartiremos tu informacion con nadie más</div>
+                        </label>
                     </div>
-                    <div class="mb-3">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su contraseña" name="contraseña">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <label class="form-label">Contraseña
+                                <input type="password" class="form-control" />
+                        </label>
+                        </div>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Mantener sesión iniciada</label>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <label class="form-label">Confirmar contraseña
+                                <input type="password" name="contrasenia" class="form-control" />
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group text-center">
-                            <a href="index.php"><button type="submit" class="btn btn-primary btn-md">Iniciar sesión</button></a>
-                            <a href="registro.html" class="text-info">¿No tiene cuenta? Registrate, aquí.</a>
-                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Registro</button>
                 </form>
             </div>
         </div>
     </div>
 
 </body>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </html>
